@@ -64,7 +64,7 @@ class DiscordWebhooks
 	 *                           tts:        true if this is a TTS message
 	 *                           file:       the contents of the file being sent
 	 *                           embeds:     embedded rich content
-	 * @return array         json return:
+	 * @return array         return:
 	 *                           success:    execution success or not
 	 *                           error:      error message if failed
 	 */
