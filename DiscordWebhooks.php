@@ -6,10 +6,6 @@ class DiscordWebhooks
 	protected static $action = '';
 	protected static $agent = 'PHP-DISCORD-WEBHOOKS-by-Howar31';
 
-	public function __construct()
-	{
-	}
-
 	protected static function cPost (array $params = array())
 	{
 		$ch = curl_init();
@@ -25,7 +21,7 @@ class DiscordWebhooks
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_SSL_VERIFYHOST => false,
 			CURLOPT_POSTFIELDS     => json_encode($params),
-			CURLOPT_URL            => API_URL."Q".static::$action,
+			CURLOPT_URL            => API_URL.static::$action,
 			CURLOPT_HTTPHEADER     => array('Content-Type: application/json')
 
 		));
