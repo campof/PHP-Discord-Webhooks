@@ -90,16 +90,16 @@ class DiscordWebhooks
 
 		$data = array(
 			'content' => trim($input['content']),
-			'username' => $input['username'],
-			'avatar_url' => $input['avatar_url'],
-			'tts' => $input['tts'],
-			'file' => $input['file'],
-			'embeds' => is_array($input['embeds']) ? $input['embeds'] : array()
+			'username' => empty($input['username']) ? '' : $input['username'],
+			'avatar_url' => empty($input['avatar_url']) ? '' : $input['avatar_url'],
+			'tts' => empty($input['tts']) ? false : $input['tts'],
+			'file' => empty($input['file']) ? '' : $input['file'],
+			'embeds' => (!empty($input['embeds']) && is_array($input['embeds'])) ? $input['embeds'] : array()
 		);
 
 		$result = $this->cPost($data);
 
-		if (!IS_LIVE && $result)
+		if (!IS_LIVE && !empty($result))
 		{
 			$return['error'] = $result;
 			goto END;
